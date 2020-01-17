@@ -1,16 +1,21 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
-    if params[:sort]
+    if params[:letter]
+      @products = Product.start_letter(params[:letter])
+    elsif  params[:sort]
       case params[:sort]
       when 'most_reviews'
         @products = Product.most_reviews
       when 'local'
-        @products = Product.origin
+        @products = Product.local
       when 'recently_added'
         @products = Product.recently_added
+      when 'all'
+        @products = Product.all
       end
+    else
+      @products = Product.all
     end
     render :index
     end

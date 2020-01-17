@@ -1,6 +1,31 @@
 <div class="jumbotron">
   <h1>All Products</h1>
 </div>
+<div class="letters">
+  <% letters1 = ('A'..'M').to_a %>
+  <% letters2 = ('N'..'Z').to_a %>
+  <table class="table">
+    <tr>
+      <%letters1.each do |letter|%>
+        <td><%= link_to "#{letter}", products_path(:letter => letter)%></td>
+      <%end%>
+    </tr>
+    <tr>
+      <%letters2.each do |letter|%>
+        <td><%= link_to "#{letter}", products_path(:letter => letter)%></td>
+      <%end%>
+    </tr>
+  </table>
+</div>
+<div class="options">
+  <select onChange="window.document.location.href=this.options[this.selectedIndex].value;">
+    <option value="<%= products_path %>" selected>Sort by...</option>
+    <option value="<%= products_path %>?sort=all">View All</option>
+    <option value="<%= products_path %>?sort=local">Made in the USA</option>
+    <option value="<%= products_path %>?sort=most_reviews">Most Reviews</option>
+    <option value="<%= products_path %>?sort=recently_added">Recently Added</option>
+  </select>
+</div>
 <div class="content">
   <%if @products.any?%>
   <ul>
