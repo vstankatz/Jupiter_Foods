@@ -10,4 +10,8 @@ describe Product do
     product = Product.create({name: "apple butter", origin: "USA", cost: 2.50})
     expect(product.name()).to(eq("Apple Butter"))
   end
+  it("rounds the price to two decimals") do
+    product = Product.create({name: "apple butter", origin: "USA", cost: 2.501})
+    expect(product.cost()).to(eq(2.50))
+  end
 end
