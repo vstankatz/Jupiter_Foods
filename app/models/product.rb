@@ -1,3 +1,3 @@
 class Product < ApplicationRecord
-  has_many :reviews, dependant: :destroy
+  has_many :reviews, dependent: :destroy
 end
