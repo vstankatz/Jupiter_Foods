@@ -1,0 +1,28 @@
+<div class="jumbotron">
+  <h1>Product Name: <%= @product.name %></h1>
+</div>
+<div class="options">
+  <h5>Order By:</h5>
+  <select onChange="window.document.location.href=this.options[this.selectedIndex].value;">
+    <option value="<%= product_path %>" selected>Select...</option>
+    <option value="<%= product_path %>?sort=local">Made in the USA</option>
+    <option value="<%= product_path %>?sort=most_reviews">Most Reviews</option>
+    <option value="<%= product_path %>?sort=recently_added">Recently Added</option>
+  </select>
+</div>
+<div class="content">
+  <%if @product.reviews.any?%>
+  <ul>
+    <%@product.reviews.each do |review|%>
+    <li><%=review.rating%><%= link_to review.author, product_review_path(@product, review)%></li>
+    <%end%>
+  </ul>
+  <%else%>
+  <p>No reviews to display.</p>
+  <%end%>
+  <p><%= link_to "Edit product", edit_product_path(@product)%></p>
+  <p><%= link_to "Delete product", product_path(@product),
+    :data => {:confirm => "Are you sure?",
+    :method => "delete"} %></p>
+    <p><%= link_to "Create new review", new_product_review_path(@product) %></p>
+  </div>

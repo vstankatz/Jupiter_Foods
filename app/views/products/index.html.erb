@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <h1>All Products</h1>
+</div>
+<div class="content">
+  <%if @products.any?%>
+  <ul>
+    <%@products.each do |product|%>
+    <li><%= link_to product.name, product_path(product)%></li>
+    <%end%>
+  </ul>
+  <%else%>
+  <p>No products to display.</p>
+  <%end%>
+  <p><%= link_to "Create new product", new_product_path %></p>
+</div>

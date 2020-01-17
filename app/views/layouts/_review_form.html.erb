@@ -1,0 +1,10 @@
+<%= render "layouts/errors", :object => @review%>
+<%=form_for [@product, @review] do |f|%>
+<%=f.label :Your_Name%>
+<%=f.text_field :author%>
+<%=f.label :Rating%>
+<%= range_field(:review, :rating, in: 1..5, value: '1', step: '1', id: 'star_rating', class:'')%>
+<%=f.label :Review%>
+<%=f.text_area :content%>
+<%=f.submit%>
+<%end%>
