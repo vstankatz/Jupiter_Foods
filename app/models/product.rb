@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
   validates :name, :origin, :cost, presence: true
+  validates :cost, numericality: {greater_than: 0}
   validates_length_of :name, maximum: 100
   before_save(:titleize_name)
   before_save(:check_price)
