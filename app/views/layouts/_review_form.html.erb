@@ -2,8 +2,23 @@
 <%=form_for [@product, @review] do |f|%>
 <%=f.label :Your_Name%>
 <%=f.text_field :author%>
-<%=f.label :Rating%>
-<%= range_field(:review, :rating, in: 1..5, value: '1', step: '1', id: 'star_rating', class:'')%>
+<div class="form-group rating">
+<label>
+  <input type="radio" name="review[rating]" id="stars" value="1"><span class="icon">★</span>
+</label>
+<label>
+  <input type="radio" name="review[rating]" id="stars" value="2"><span class="icon">★</span><span class="icon">★</span>
+</label>
+<label>
+  <input type="radio" name="review[rating]" id="stars" value="3"><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span>
+</label>
+<label>
+  <input type="radio" name="review[rating]" id="stars" value="4"><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span>
+</label>
+<label>
+  <input type="radio" name="review[rating]" id="stars" value="5"><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span>
+</label>
+</div>
 <%=f.label :Review%>
 <%=f.text_area :content%>
 <%=f.submit%>
