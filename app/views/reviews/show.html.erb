@@ -1,22 +1,27 @@
 <div class="jumbotron">
   <h2>Review for: <%= link_to @product.name, product_path(@product)%></h2>
 </div>
-<div class="content">
-  <h3>"<%=@review.content%>" <br><i class="center">- <%=@review.author%></i></h3>
-  <div class="stars">
-    <% stars= []%>
-    <% @review.rating.to_i.times do %>
-    <% stars.push("★")%>
-    <%end%>
-    <p><span>Rating:</span><%=stars.join%></p>
+<div class="row views">
+  <div class="col greenrow">
+  <p class="click medium"><%= link_to "Return to Product", product_path(@product)%></p>
   </div>
-  <div class="image">
-
+  <div class="col blue">
+    <div class="content">
+      <h3>"<%=@review.content%>" <br><i class="center">- <%=@review.author%></i></h3>
+      <div class="stars">
+        <% stars= []%>
+        <% @review.rating.to_i.times do %>
+        <% stars.push("★")%>
+        <%end%>
+        <p><span>Rating:</span><%=stars.join%></p>
+      </div>
+  </div>
+  </div>
+  <div class="col purple">
+    <p class="click smaller"><%= link_to "Edit review", edit_product_review_path(@product, @review)%></p>
+    <p class="click smaller"><%= link_to "Delete review", product_review_path(@product, @review),
+      :data => {:confirm => "Are you sure?",
+      :method => "delete"} %></p>
   </div>
 
-  <p><%= link_to "Edit review", edit_product_review_path(@product, @review)%></p>
-  <p><%= link_to "Delete review", product_review_path(@product, @review),
-    :data => {:confirm => "Are you sure?",
-    :method => "delete"} %></p>
-    <p><%= link_to "Return to Product", product_path(@product)%></p>
   </div>

@@ -1,25 +1,36 @@
 <%= render "layouts/errors", :object => @review%>
-<%=form_for [@product, @review] do |f|%>
-<%=f.label :Your_Name%>
-<%=f.text_field :author%>
-<div class="form-group rating">
-<label>
-  <input type="radio" name="review[rating]" id="stars" value="1"><span class="icon">★</span>
-</label>
-<label>
-  <input type="radio" name="review[rating]" id="stars" value="2"><span class="icon">★</span><span class="icon">★</span>
-</label>
-<label>
-  <input type="radio" name="review[rating]" id="stars" value="3"><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span>
-</label>
-<label>
-  <input type="radio" name="review[rating]" id="stars" value="4"><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span>
-</label>
-<label>
-  <input type="radio" name="review[rating]" id="stars" value="5"><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span>
-</label>
+<div class="row forms">
+<div class="col greenform">
+  <%=form_for [@product, @review] do |f|%>
+  <%=f.label :Your_Name%>
+  <br>
+  <%=f.text_field :author%>
 </div>
-<%=f.label :Review%>
-<%=f.text_area :content%>
-<%=f.submit%>
-<%end%>
+<div class="col blueform">
+  <div class="form-group rating">
+  <label>
+    <input type="radio" name="review[rating]" id="stars" value="1"><span class="icon">★</span>
+  </label>
+  <label>
+    <input type="radio" name="review[rating]" id="stars" value="2"><span class="icon">★</span><span class="icon">★</span>
+  </label>
+  <label>
+    <input type="radio" name="review[rating]" id="stars" value="3"><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span>
+  </label>
+  <label>
+    <input type="radio" name="review[rating]" id="stars" value="4"><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span>
+  </label>
+  <label>
+    <input type="radio" name="review[rating]" id="stars" value="5"><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span><span class="icon">★</span>
+  </label>
+  </div>
+  <br><br>
+  <%=f.submit%>
+</div>
+<div class="col purpleform">
+  <%=f.label :Review%>
+  <br>
+  <%=f.text_area :content%>
+  <%end%>
+</div>
+</div>

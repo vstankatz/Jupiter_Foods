@@ -1,23 +1,44 @@
 <div class="jumbotron">
   <h1>Product Name: <%= @product.name %></h1>
 </div>
-<div class="content">
-  <%if @product.reviews.any?%>
-  <ul>
-    <%@product.reviews.each do |review|%>
-    <% stars= []%>
-    <% review.rating.to_i.times do %>
-    <% stars.push("★")%>
+<div class="row">
+<div class="col green">
+  <div class="info">
+    <p>Market Price: <br><span class="info">$<%=@product.cost%></span></p>
+    <br><br>
+    <p>Country of Origin: <br> <span class="info"><%=@product.origin%></span></p>
+  </div> <br><br>
+  <p class="click medium"><a href="/products">Back to Products</a></p>
+
+</div>
+<div class="col blue">
+
+  <div class="content reviews">
+    <%if @product.reviews.any?%>
+    <p class="lead">Here's what our customers have to say...</p>
+    <ul>
+      <%@product.reviews.each do |review|%>
+      <% stars= []%>
+      <% review.rating.to_i.times do %>
+      <% stars.push("★")%>
+      <%end%>
+      <li><%=stars.join%>-<i><%= link_to review.author, product_review_path(@product, review)%></i></li>
+      <%end%>
+    </ul>
+    <%else%>
+    <p>No reviews to display.</p>
     <%end%>
-    <li><%=stars.join%>-<i><%= link_to review.author, product_review_path(@product, review)%></i></li>
-    <%end%>
-  </ul>
-  <%else%>
-  <p>No reviews to display.</p>
-  <%end%>
-  <p><%= link_to "Edit product", edit_product_path(@product)%></p>
-  <p><%= link_to "Delete product", product_path(@product),
-    :data => {:confirm => "Are you sure?",
-    :method => "delete"} %></p>
-    <p><%= link_to "Create new review", new_product_review_path(@product) %></p>
+    <p class="click smaller"><%= link_to "Edit product", edit_product_path(@product)%></p>
+    <p class="click smallmed"><%= link_to "Delete product", product_path(@product),
+      :data => {:confirm => "Are you sure?",
+      :method => "delete"} %></p>
+      <p class="click medium"><%= link_to "Create new review", new_product_review_path(@product) %></p>
+    </div>
+</div>
+  <div class="col purple">
+    <div class="image">
+      <img src="https://loremflickr.com/300/300/<%=@product.name%>/all" alt="Photo of <%@product.name%>">
+      <p>The <span id="wordplay">majestic</span> <%=@product.name%></p>
+    </div>
   </div>
+</div>
