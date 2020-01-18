@@ -7,7 +7,8 @@
   </div>
   <div class="col blue">
     <div class="content">
-      <h3>"<%=@review.content%>" <br><i class="center">- <%=@review.author%></i></h3>
+      <h3>"<%=@review.content%>"</h3>
+      <p><i class="center">-<%=@review.author%></i></p>
       <div class="stars">
         <% stars= []%>
         <% @review.rating.to_i.times do %>
