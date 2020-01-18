@@ -66,3 +66,25 @@ h1 {
   color: #000;
   text-shadow: 0 0 5px #09f;
 }
+
+.stars {
+  font-size: 30px;
+  color: gold;
+  padding: 10px 15%;
+}
+
+.stars span {
+  font-size: 20px;
+  color: black;
+  padding: 13px;
+}
+
+.content {
+  padding: 10px 15%;
+}
+
+i.center{
+  text-align: center;
+  padding: 15%;
+  color: grey;
+}

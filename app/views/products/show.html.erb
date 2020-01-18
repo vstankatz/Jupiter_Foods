@@ -5,7 +5,11 @@
   <%if @product.reviews.any?%>
   <ul>
     <%@product.reviews.each do |review|%>
-    <li><%=review.rating%><%= link_to review.author, product_review_path(@product, review)%></li>
+    <% stars= []%>
+    <% review.rating.to_i.times do %>
+    <% stars.push("★")%>
+    <%end%>
+    <li><%=stars.join%>-<i><%= link_to review.author, product_review_path(@product, review)%></i></li>
     <%end%>
   </ul>
   <%else%>

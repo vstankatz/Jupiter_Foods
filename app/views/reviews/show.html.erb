@@ -2,9 +2,13 @@
   <h2>Review for: <%= link_to @product.name, product_path(@product)%></h2>
 </div>
 <div class="content">
-  <h3>"<%=@review.content%>" -<i><%=@review.author%></i></h3>
+  <h3>"<%=@review.content%>" <br><i class="center">- <%=@review.author%></i></h3>
   <div class="stars">
-    STAR RATING
+    <% stars= []%>
+    <% @review.rating.to_i.times do %>
+    <% stars.push("★")%>
+    <%end%>
+    <p><span>Rating:</span><%=stars.join%></p>
   </div>
   <div class="image">
 
