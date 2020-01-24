@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-
+before_action :authenticate_user!, only: [:new, :create]
+before_action :authorize_admin, only: [:edit, :update, :destroy]
   def index
     @reviews = Review.all
     render :index
