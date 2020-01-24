@@ -1,5 +1,8 @@
+<div class="jumbotron">
 <h2>Log in</h2>
-
+</div>
+<div class="row forms">
+  <div class="col greenform">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -17,10 +20,12 @@
       <%= f.label :remember_me %>
     </div>
   <% end %>
-
+<br>
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-
+<br>
 <%= render "devise/shared/links" %>
+</div>
+</div>
