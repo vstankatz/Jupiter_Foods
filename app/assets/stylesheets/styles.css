@@ -19,6 +19,10 @@ h1 {
   padding: 6px;
 }
 
+.show {
+  display: block;
+}
+
 p.quote {
   font-size: 25px;
   color: white;
