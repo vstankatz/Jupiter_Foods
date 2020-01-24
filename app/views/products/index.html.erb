@@ -29,8 +29,15 @@
     </select>
   </div>
   <br><br><br>
+  <% if @user.nil? == false %>
+  <% if @user.admin == true %>
+  <div class="private">
     <p class="click"><%= link_to "Create new product", new_product_path %></p><br><br>
-    <p class="click"><%= link_to "Back to Home Page", root_path %></p>
+  </div>
+  <% end %>
+  <% end %>
+  <p class="click"><%= link_to "Back to Home Page", root_path %></p>
+
 </div>
 <div class="col blue">
   <div class="content products">

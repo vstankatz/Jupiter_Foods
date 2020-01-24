@@ -18,6 +18,7 @@ before_action :authorize_admin, only: [:new, :create, :edit, :update, :destroy]
     else
       @products = Product.all
     end
+    @user = current_user
     render :index
     end
 
@@ -41,6 +42,7 @@ before_action :authorize_admin, only: [:new, :create, :edit, :update, :destroy]
 
     def show
       @product = Product.find(params[:id])
+      @user = current_user
     end
 
     def update

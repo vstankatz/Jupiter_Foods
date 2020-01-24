@@ -3,7 +3,7 @@ before_action :authenticate_user!, only: [:new, :create]
 before_action :authorize_admin, only: [:edit, :update, :destroy]
   def index
     @reviews = Review.all
-    render :index
+    redirect_to products_path
     end
 
     def new
@@ -32,6 +32,7 @@ before_action :authorize_admin, only: [:edit, :update, :destroy]
     def show
       @product = Product.find(params[:product_id])
       @review = Review.find(params[:id])
+      @user = current_user
       render :show
     end
 
