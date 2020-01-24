@@ -28,10 +28,12 @@
     <%else%>
     <p>No reviews to display.</p>
     <%end%>
-    <p class="click smaller"><%= link_to "Edit product", edit_product_path(@product)%></p>
-    <p class="click smallmed"><%= link_to "Delete product", product_path(@product),
-      :data => {:confirm => "Are you sure?",
-      :method => "delete"} %></p>
+    <div class="private">
+      <p class="click smaller"><%= link_to "Edit product", edit_product_path(@product)%></p>
+      <p class="click smallmed"><%= link_to "Delete product", product_path(@product),
+        :data => {:confirm => "Are you sure?",
+        :method => "delete"} %></p>
+    </div>
       <p class="click medium"><%= link_to "Create new review", new_product_review_path(@product) %></p>
     </div>
 </div>
