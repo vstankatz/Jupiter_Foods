@@ -11,7 +11,7 @@
 <body>
   <div class="registration">
     <% if user_signed_in? %>
-    <div class="dropdown">
+    <!-- <div class="dropdown">
       <button type="button" data-target="#myDropdown" class="btn btn-secondary dropdown-toggle" href="/" data-toggle="dropdown"><span class="caret"></span></button>
       <ul class="dropdown-menu" id="myDropdown">
         <li><a href="#">test</a></li>
@@ -30,8 +30,9 @@
         <a class="dropdown-item" href="#">Another action</a>
         <a class="dropdown-item" href="#">Something else here</a>
       </div>
-    </div>
-    <p><%= link_to current_user.email, destroy_user_session_path, :method => :delete%></p>
+    </div> -->
+    <p><%= link_to current_user.email, edit_user_registration_path%></p>
+    <p><%= link_to "Sign Out", destroy_user_session_path, :method => :delete%></p>
     <% else %>
     <p><%= link_to "Sign-In/Sign-Up", new_user_session_path%></p>
     <% end %>
