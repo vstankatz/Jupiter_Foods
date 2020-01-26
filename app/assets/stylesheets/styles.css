@@ -4,8 +4,60 @@ body {
   width: auto;
 }
 
+#user_options {
+  background-color: none;
+  background: none;
+  border-style: none;
+  color: #D8D8D8;
+}
+.dropdown {
+  background-color: none;
+  width: 100px;
+}
+
+.dropdown-content {
+  display: none;
+  width: 100px;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+}
+
+.dropdown-content a {
+  color: #A6D43D;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover #user_options {
+  background: rgba(245,245,245, 0.8);
+  color: #D43D79;
+}
+
+.dropdown .user_options:hover {
+  background: rgba(212,61,121,0.3);
+
+}
+
+
 h1 {
   color: #D8D8D8;;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+h4 {
   text-align: center;
 }
 
@@ -16,7 +68,7 @@ h1 {
 
 .registration {
   float: right;
-  padding: 6px;
+  padding: 20px;
 }
 
 .show {
