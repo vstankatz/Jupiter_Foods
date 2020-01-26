@@ -31,7 +31,7 @@ _This program was designed to allow the admin of a fake company to view, update,
 
 
 ## Known Bugs
-_Unable to pass one capybara test due to the radio button style for the create a review path. To run test, go to file in your terminal and type "rspec"._
+_Unable to pass one capybara test due to the radio button style for the edit a review path. To run test, go to file in your terminal and type "rspec"._
 
 ## Technologies Suggested
 * _Ruby 2.5.1_
@@ -39,6 +39,8 @@ _Unable to pass one capybara test due to the radio button style for the create a
 * _Gems:_
   * _rspec_
   * _pry_
+  * _simplecov_
+  * _jquery-rails
   * _bundler_
   * _capybara_
   * _pg_
@@ -49,6 +51,7 @@ _Unable to pass one capybara test due to the radio button style for the create a
   * _turbolinks_
   * _launchy_
   * _web-console_
+  * _devise_
   * _shoulda-matchers_
 * _Markup_
 * _Psql_
