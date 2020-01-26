@@ -17,7 +17,7 @@ describe "product deletion" do
     expect(page).to_not have_content "Apple Butter"
   end
 
-  it "returns error when user tries to delete a product" do
+  it "does not allow a non admin user to delete a product" do
     visit '/'
     click_link 'Sign-In/Sign-Up'
     click_link 'Sign up'
