@@ -109,7 +109,7 @@ footer.blockquote-footer{
 .family_image {
   min-width: 300px;
   min-height: 250px;
-  background-image: url("family.jpg");
+  background: asset-url("family.jpg", image);
   background-size: 300px 250px;
   background-repeat: no-repeat;
   margin-right: 30px;
