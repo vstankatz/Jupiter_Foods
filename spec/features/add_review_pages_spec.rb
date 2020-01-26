@@ -55,7 +55,7 @@ end
     expect(page).to have_content "Rating can't be blank"
   end
 
-  it "gives an error when review is too short" do
+  it "gives an error when review is too long" do
     visit '/'
     click_link 'Sign-In/Sign-Up'
     click_link 'Sign up'
@@ -73,7 +73,7 @@ end
     expect(page).to have_content 'Content is too long (maximum is 250 characters)'
   end
 
-  it "gives an error when no review is too long" do
+  it "gives an error when no review is too short" do
     visit '/'
     click_link 'Sign-In/Sign-Up'
     click_link 'Sign up'
