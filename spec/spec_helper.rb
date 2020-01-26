@@ -100,8 +100,9 @@ RSpec.configure do |config|
 end
 require 'simplecov'
 
-SimpleCov.start
-
+SimpleCov.start  do
+  add_filter "spec/rails_helper.rb"
+end
 RSpec.configure do |config|
 
   config.expect_with :rspec do |expectations|
