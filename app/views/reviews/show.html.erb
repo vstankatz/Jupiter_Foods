@@ -22,11 +22,11 @@
     <% if @user.nil? == false %>
     <% if @user.admin == true %>
     <div class="private">
-    <p class="click smaller"><%= link_to "Edit review", edit_product_review_path(@product, @review)%></p>
     <p class="click smaller"><%= link_to "Delete review", product_review_path(@product, @review),
       :data => {:confirm => "Are you sure?",
       :method => "delete"} %></p>
   </div>
     <% end %>
     <% end %>
+    <p class="click smaller"><%= link_to "Edit review", edit_product_review_path(@product, @review)%></p>
   </div>

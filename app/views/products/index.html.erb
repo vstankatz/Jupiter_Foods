@@ -20,12 +20,12 @@
 <div class="row">
 <div class="col green">
   <div class="options">
-    <select name="scope" onChange="window.document.location.href=this.options[this.selectedIndex].value;">
+    <select id="scopes" name="scope" onChange="window.document.location.href=this.options[this.selectedIndex].value;">
       <option value="<%= products_path %>" selected>Sort by...</option>
-      <option value="<%= products_path %>?sort=all">View All</option>
-      <option value="<%= products_path %>?sort=local">Made in the USA</option>
-      <option value="<%= products_path %>?sort=most_reviews">Most Reviews</option>
-      <option value="<%= products_path %>?sort=recently_added">Recently Added</option>
+      <option class="scope_all" value="<%= products_path %>?sort=all">View All</option>
+      <option class="scope_local" value="<%= products_path %>?sort=local">Made in the USA</option>
+      <option class="scope_most" value="<%= products_path %>?sort=most_reviews">Most Reviews</option>
+      <option class="scope_recent" value="<%= products_path %>?sort=recently_added">Recently Added</option>
     </select>
   </div>
   <br><br><br>
@@ -44,7 +44,7 @@
     <%if @products.any?%>
     <ul>
       <%@products.each do |product|%>
-      <li><%= link_to product.name, product_path(product)%></li>
+      <li class="product_list_item" ><%= link_to product.name, product_path(product)%></li>
       <%end%>
     </ul>
     <%else%>
