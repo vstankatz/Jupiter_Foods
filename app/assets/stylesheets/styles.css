@@ -100,7 +100,7 @@ footer.blockquote-footer{
 .food_image {
   min-width: 300px;
   min-height: 190px;
-  background-image: url("food.jpg");
+  background: asset-url("food.jpg", image);
   background-size: 300px 190px;
   background-repeat: no-repeat;
   filter: grayscale(35);
