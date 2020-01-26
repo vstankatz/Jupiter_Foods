@@ -11,18 +11,19 @@ describe "scopes setup and teardown" do
     it 'should scope based off local' do
       visit products_path
       select('Made in the USA', from: 'scope')
-      expect(page).to have_content 'Apple Butter'
+      expect(page).to have_css '.product_list_item'
     end
 
     it 'should scope based off most reviews' do
       visit products_path
       select('Most Reviews', from: 'scope')
-      expect(page).to have_content 'Apple Butter'
+      expect(page).to have_css '.product_list_item', maximum: 25
     end
 
     it 'should scope based off most recently added' do
       visit products_path
       select('Recently Added', from: 'scope')
+      expect(page).to have_css '.product_list_item', maximum: 25
     end
   end
 
