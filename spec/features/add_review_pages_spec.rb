@@ -25,6 +25,12 @@ describe "the add a review process" do
   end
 end
 
+it "gives an error when non user tries to add review" do
+  visit product_path(@product)
+  click_on 'Create new review'
+  expect(page).to have_content "You need to sign in or sign up before continuing."
+end
+
   it "gives an error when no name is entered" do
     visit '/'
     click_link 'Sign-In/Sign-Up'
