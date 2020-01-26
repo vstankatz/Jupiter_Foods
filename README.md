@@ -22,13 +22,16 @@ _This program was designed to allow the admin of a fake company to view, update,
 
 ## Setup-Installation Requirements
 
+### To Run Locally
 * _Go to https://github.com/vstankatz/Jupiter_Foods_
 * _Clone the GitHub repository._
-* _In your terminal/command line go into the folder that was cloned and run "rails s" to start the server._
+* _In your terminal/command line go into the folder that was cloned and run "bundle", "rake db:create" , "rake db:migrate", "rake db:test:prepare", "rake db:seed", "rails s" to prepare your database and start the server._
 * _Once the server loads go to your browser and input 'localhost:' into your browser with the port given by your terminal._
 * _Use the site as desired!_
 
-
+### To Run Remotely
+* _Go to https://hidden-taiga-30916.herokuapp.com/
+* _Use the site as desired!_
 
 ## Known Bugs
 _Unable to pass one capybara test due to the radio button style for the edit a review path. To run test, go to file in your terminal and type "rspec"._
