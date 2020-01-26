@@ -26,21 +26,21 @@ end
     expect(page).to have_content 'Samantha'
   end
 
-  # it "returns error when user tries to edit a product" do
-  #   visit '/'
-  #   click_link 'Sign-In/Sign-Up'
-  #   click_link 'Sign up'
-  #   fill_in 'user[email]', :with => 'test@epicodus.com'
-  #   fill_in 'user[password]', :with => 'password'
-  #   fill_in 'user[password_confirmation]', :with => 'password'
-  #   click_on 'Sign up'
-  #   visit edit_product_review_path(@review)
-  #   expect(page).to have_content "You aren't authorized to perform that action."
-  # end
-  #
-  # it "returns error non user tries to edit a product" do
-  #   visit edit_product_review_path(@review)
-  #   expect(page).to have_content "Please sign-in to continue."
-  # end
+  it "returns error when user tries to edit a review" do
+    visit '/'
+    click_link 'Sign-In/Sign-Up'
+    click_link 'Sign up'
+    fill_in 'user[email]', :with => 'test@epicodus.com'
+    fill_in 'user[password]', :with => 'password'
+    fill_in 'user[password_confirmation]', :with => 'password'
+    click_on 'Sign up'
+    visit edit_product_review_path(@product, @review)
+    expect(page).to have_content "You aren't authorized to perform that action."
+  end
+
+  it "returns error non user tries to edit a product" do
+    visit edit_product_review_path(@product, @review)
+    expect(page).to have_content "Please sign-in to continue."
+  end
 
 end
