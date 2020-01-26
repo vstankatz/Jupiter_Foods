@@ -41,4 +41,21 @@ describe "product editing" do
     expect(page).to have_content "Please sign-in to continue."
   end
 
+
+    it "gives an error when no name is entered" do
+      visit '/'
+      click_link 'Sign-In/Sign-Up'
+      click_link 'Sign up'
+      fill_in 'user[email]', :with => 'test@epicodus.com'
+      fill_in 'user[password]', :with => 'password'
+      fill_in 'user[password_confirmation]', :with => 'password'
+      check 'user[admin]'
+      click_on 'Sign up'
+      visit edit_product_path(@product)
+      fill_in 'product[name]', :with => ''
+      click_on 'Update Product'
+      expect(page).to have_content "Name can't be blank"
+    end
+
+
 end
