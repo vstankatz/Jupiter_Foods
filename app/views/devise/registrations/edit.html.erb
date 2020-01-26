@@ -2,9 +2,9 @@
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 </div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 <div class="row forms">
   <div class="col greenform">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
@@ -15,6 +15,8 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
+  </div>
+  <div class="col blueform">
 
     <div class="field">
       <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -40,10 +42,16 @@
     </div>
     <% end %>
     <hr>
+
+
+
+  </div>
+  <div class="col pupleform">
     <h3>Cancel my account</h3>
 
     <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
+    <br>
     <%= link_to "Back", :back %>
+
   </div>
 </div>
