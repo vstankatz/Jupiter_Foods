@@ -3,55 +3,55 @@
   <h4>Products out of This World</h4>
 </div>
 <div class="row">
-<div class="col green">
-  <div class="content products sides">
-    <%if @products.any?%>
-    <h5><b>Most Reviewed Item:</b></h5>
+  <div class="col green">
+    <div class="content products sides">
+      <%if @products.any?%>
+      <h5><b>Most Reviewed Item:</b></h5>
       <%@products_most.each do |product|%>
       <p><%= link_to product.name, product_path(product)%></p>
       <%end%>
-    <%else%>
-    <p>No products to display.</p>
-    <%end%>
-    <br><br>
-    <p class="click viewall"><%= link_to "View All Products", products_path %></p>
-    <br><br><br><br>
-    <div class="images">
-      <div class="food_image">
-
-      </div>
-      <span>Photo of The Great Food Fight</span>
-    </div>
-  </div>
-</div>
-<div class="col blue">
-  <div class="story">
-    <h4>Our Story</h4><br><br>
-    <p> Jupiter Foods has been around since 1876, founded by my great-great grandfather just after the Great Food Fights of Europe. Though only 14 he had been drafted into the fights as a junior sandwhich-smacker, forced to slam bread, veggies, and deli-meat onto the faces of the enemy, thus blinding them.
-      <blockquote class="blockquote">
-  <p class="quote">"There was a time when all I could see was sprouts and hummus, but I simply had to fight through it and know that eventually I'd find bread... and then I could wipe the condiments from my eyes."</p>
-  <footer class="blockquote-footer">Diary passage of Edward. S. Jupiter <cite title="Source Title">(1868)</cite></footer>
-</blockquote>
-    <p>  He fled to the United Stated with his parents and six sisters with a dream of providing foods from all over to anyone, regardless of where they're from. Today Jupiter Foods serves over 3,000 clients a year and has a roating stock of products from every country.</p>
-  </div>
-</div>
-<div class="col purple">
-  <div class="content products sides">
-    <%if @products.any?%>
-    <h5><b>Newest Products</b></h5>
-      <%@products_newest.each do |product|%>
-      <p><%= link_to product.name, product_path(product)%></p>
+      <%else%>
+      <p>No products to display.</p>
       <%end%>
-    <%else%>
-    <p>No recent products to display.</p>
-    <%end%><br>
-    <br><br><br>
-    <div class="images">
-      <div class="family_image">
-
+      <br><br>
+      <p class="click viewall"><%= link_to "View All Products", products_path %></p>
+      <br><br><br><br>
+      <div class="images">
+        <div class="food_image">
+          <%= asset_path('food.jpg') %>
+        </div>
+        <span>Photo of The Great Food Fight</span>
       </div>
-      <span>Photo of the Jupiter's circa. 1860</span>
     </div>
   </div>
-</div>
-</div>
+  <div class="col blue">
+    <div class="story">
+      <h4>Our Story</h4><br><br>
+      <p> Jupiter Foods has been around since 1876, founded by my great-great grandfather just after the Great Food Fights of Europe. Though only 14 he had been drafted into the fights as a junior sandwhich-smacker, forced to slam bread, veggies, and deli-meat onto the faces of the enemy, thus blinding them.
+        <blockquote class="blockquote">
+          <p class="quote">"There was a time when all I could see was sprouts and hummus, but I simply had to fight through it and know that eventually I'd find bread... and then I could wipe the condiments from my eyes."</p>
+          <footer class="blockquote-footer">Diary passage of Edward. S. Jupiter <cite title="Source Title">(1868)</cite></footer>
+        </blockquote>
+        <p>  He fled to the United Stated with his parents and six sisters with a dream of providing foods from all over to anyone, regardless of where they're from. Today Jupiter Foods serves over 3,000 clients a year and has a roating stock of products from every country.</p>
+      </div>
+    </div>
+    <div class="col purple">
+      <div class="content products sides">
+        <%if @products.any?%>
+        <h5><b>Newest Products</b></h5>
+        <%@products_newest.each do |product|%>
+        <p><%= link_to product.name, product_path(product)%></p>
+        <%end%>
+        <%else%>
+        <p>No recent products to display.</p>
+        <%end%><br>
+        <br><br><br>
+        <div class="images">
+          <div class="family_image">
+            <%= asset_path('family.jpg') %>
+          </div>
+          <span>Photo of the Jupiter's circa. 1860</span>
+        </div>
+      </div>
+    </div>
+  </div>
