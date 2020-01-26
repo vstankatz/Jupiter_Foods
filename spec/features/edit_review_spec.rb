@@ -6,7 +6,7 @@ describe "review editing" do
     user = User.create(email: 'cool@cat.com', password: 'testing', admin: true)
     @product = Product.create({:name => "Apple Butter", :origin => "USA", :cost => 2.34, user_id: user.id})
     @review = Review.create(author: 'Bilbo Baggins' , rating: 4, content: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.' , product_id: @product.id, user_id: user.id)
-end
+  end
 
   it "edits a review" do
     visit '/'
@@ -26,7 +26,7 @@ end
     expect(page).to have_content 'Samantha'
   end
 
-  it "returns error when user tries to edit a review" do
+  it "returns error when user tries to edit a review via link" do
     visit '/'
     click_link 'Sign-In/Sign-Up'
     click_link 'Sign up'
@@ -36,6 +36,25 @@ end
     click_on 'Sign up'
     visit edit_product_review_path(@product, @review)
     expect(page).to have_content "You aren't authorized to perform that action."
+  end
+
+  it "returns error when user tries to edit a review via click" do
+    visit '/'
+    click_link 'Sign-In/Sign-Up'
+    click_link 'Sign up'
+    fill_in 'user[email]', :with => 'test@epicodus.com'
+    fill_in 'user[password]', :with => 'password'
+    fill_in 'user[password_confirmation]', :with => 'password'
+    click_on 'Sign up'
+    visit product_review_path(@product, @review)
+    click_on 'Edit review'
+    expect(page).to have_content "You aren't authorized to perform that action."
+  end
+
+  it "returns error when non user tries to edit a review via click" do
+    visit product_review_path(@product, @review)
+    click_on 'Edit review'
+    expect(page).to have_content "Please sign-in to continue."
   end
 
   it "returns error non user tries to edit a product" do
